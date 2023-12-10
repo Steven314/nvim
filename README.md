@@ -16,4 +16,7 @@ This is probably not a complete list.
 - C compiler
 
 # Installation
-
+Clone this repository to your `~/.config/nvim/lua/custom` directory.
+```
+git clone https://github.com/Steven314/nvim.git ~/.config/nvim/lua/custom
+```
