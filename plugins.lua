@@ -3,48 +3,13 @@ local overrides = require("custom.configs.overrides")
 ---@type NvPluginSpec[]
 local plugins = {
   {
-    "hrsh7th/nvim-cmp",
-    opts = {
-      sources = {
-        { name = "cmp_tabnine" },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-      },
-      mapping = {
-        ["<C-g>"] = function()
-          local cmp = require("cmp")
-
-          if cmp.visible_docs() then
-            cmp.close_docs()
-          else
-            cmp.open_docs()
-          end
-        end
-      },
-      experimental = {
-        ghost_text = true
-      },
-      window = {
-        documentation = require("cmp").config.window.bordered()
-      }
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
   },
-
-    dependencies = {
-      {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh",
-        config = function()
-          local tabnine = require "cmp_tabnine.config"
-          tabnine:setup {
-            sort = false,
-            show_prediciton_strength = true
-          }
-        end,
-      },
-    },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = overrides.cmp,
+    dependencies = require("custom.configs.cmp").dependencies
   },
 
   {
@@ -66,6 +31,11 @@ local plugins = {
 
   -- override plugin configs
   {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope
+  },
+
+  {
     "williamboman/mason.nvim",
     opts = overrides.mason
   },
@@ -78,11 +48,6 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    opts = overrides.cmp,
   },
 
   -- Install a plugin
@@ -140,6 +105,11 @@ local plugins = {
     ft = "tex",
     init = function()
       vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_compiler_latexmk = {
+        options = {
+          '-shell-escape'
+        }
+      }
     end,
   },
 
@@ -163,21 +133,8 @@ local plugins = {
   {
     "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
-    keys = {
-        {
-        "<leader>op",
-            function()
-            local peek = require("peek")
-                if peek.is_open() then
-            peek.close()
-            else
-            peek.open()
-            end
-        end,
-        desc = "Peek (Markdown Preview)",
-        },
-    },
-    opts = { theme = "dark", app = "browser" },
+    keys = require("custom.configs.peek").keys,
+    opts = require("custom.configs.peek").opts
   },
 
   -- C++

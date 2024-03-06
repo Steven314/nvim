@@ -5,6 +5,7 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
+    ["<C-H>"] = { "<C-W>" },
     ["<leader>tt"] = {
       function()
         require("base46").toggle_transparency()
@@ -12,14 +13,20 @@ M.general = {
       "Toggle Transparency"
     },
 
-
     -- Open Custom Settings
     ["<leader>,"] = { "<cmd> cd /home/steven/.config/nvim/lua/custom <CR>", "Open NvChad Settings" },
+
+    -- tmux navigator
+    ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", "Window Left" },
+    ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "Window Right"},
+    ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "Window Down"},
+    ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "Window Up"}
   },
 
   -- Save with Crtl-S
   i = {
-    ["<C-s>"] = { "<cmd> w <CR>", "Save Current Buffer" }
+    ["<C-s>"] = { "<cmd> w <CR>", "Save Current Buffer" },
+    ["<C-BS>"] = { "<C-w>" },
   },
 
   v = {
@@ -51,7 +58,6 @@ M.vimtex = {
     ["<leader>lv"] = { "<cmd> VimtexView <CR>", "View PDF" },
   }
 }
-
 
 require("core.utils").load_mappings("vimtex")
 

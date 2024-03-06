@@ -65,8 +65,42 @@ M.nvimtree = {
   },
 }
 
-M.vimtex = {
-  vimtex_view_method = "zathura"
+M.telescope = {
+  defaults = {
+    layout_config = {
+      horizontal = {
+        prompt_position = "bottom"
+      }
+    }
+  }
+}
+
+M.cmp = {
+    sources = {
+      { name = "cmp_tabnine" },
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "nvim_lua" },
+      { name = "path" },
+    },
+    mapping = {
+      ["<C-g>"] = function()
+        local cmp = require("cmp")
+
+        if cmp.visible_docs() then
+          cmp.close_docs()
+        else
+          cmp.open_docs()
+        end
+      end
+    },
+    experimental = {
+      ghost_text = true
+    },
+    window = {
+      documentation = require("cmp").config.window.bordered()
+    }
 }
 
 return M

@@ -12,7 +12,14 @@ M.ui = {
   hl_override = highlights.override,
   hl_add = highlights.add,
 
-  telescope = { style = "bordered" },
+  telescope = {
+    style = "bordered",
+    layout_config = {
+      horizontal = {
+        prompt_position = "bottom"
+      }
+    }
+  },
 
   tabufline = {
     lazyload = false,
@@ -20,7 +27,7 @@ M.ui = {
   },
 
   statusline = {
-    theme = "minimal",
+    theme = "default",
     separator_style = "round"
   },
 
@@ -35,10 +42,6 @@ M.ui = {
       " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ",
       "                [ Steven Lloyd Carter ]                 "
     }
-  },
-
-  cmp = {
-
   },
 
 }
