@@ -17,5 +17,4 @@ M.keys = {
 
 M.opts = { theme = "dark", app = "browser" }
 
-
 return M
