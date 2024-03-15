@@ -1,14 +1,14 @@
 # Description
-This is my NeoVim configuration. It is based on [NvChad](https://github.com/NvChad/NvChad) and its example configuration.
+This is my NeoVim configuration. It is based on [NvChad](https://github.com/NvChad/NvChad) and its [starter configuration](https://github.com/NvChad/starter).
 
 The setup is used mostly for $\LaTeX$ document creation pertaining to my graduate school work.
 
 # Requirements
-This configuration was created on [Linux Mint 21.2](https://www.linuxmint.com/edition.php?id=305) with the Cinnamon desktop environment.
+This configuration was created on [Linux Mint 21.3](https://www.linuxmint.com/download.php) with the Cinnamon desktop environment.
 
 This is probably not a complete list.
 
-- [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (obviously): I am using version 0.9.4. 
+- [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (obviously): I am using version 0.9.5. 
 - Python 3
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads): I use Caskaydia Cove ([preview](https://www.programmingfonts.org/#cascadia-code)).
@@ -16,7 +16,7 @@ This is probably not a complete list.
 - C compiler
 
 # Installation
-Clone this repository to your `~/.config/nvim/lua/custom` directory.
+Clone this repository to your `~/.config/nvim` directory.
 ```
-git clone https://github.com/Steven314/nvim.git ~/.config/nvim/lua/custom
+git clone https://github.com/Steven314/nvim.git ~/.config/nvim
 ```
