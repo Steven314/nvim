@@ -1,14 +1,14 @@
 # Description
 This is my NeoVim configuration. It is based on [NvChad](https://github.com/NvChad/NvChad) and its [starter configuration](https://github.com/NvChad/starter).
 
-The setup is used mostly for $\LaTeX$ document creation pertaining to my graduate school work.
+The setup is used mostly for $\LaTeX$, toying with [Quarto](https://quarto.org/) and [Shiny](https://quarto.org/) development.
 
 # Requirements
 This configuration was created on [Linux Mint 21.3](https://www.linuxmint.com/download.php) with the Cinnamon desktop environment.
 
-This is probably not a complete list.
+This is definitely not a complete list.
 
-- [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (obviously): I am using version 0.9.5. 
+- [NeoVim](https://github.com/neovim/neovim/wiki/Installing-Neovim) (obviously): I am using version 0.10.0. 
 - Python 3
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads): I use Caskaydia Cove ([preview](https://www.programmingfonts.org/#cascadia-code)).
