@@ -1,8 +1,8 @@
 local M = {}
 
 M.ui = {
-  theme = "catppuccin",
-  transparency = true,
+  theme = "everblush",
+  transparency = false,
 
 
   -- tabufline = {
@@ -10,10 +10,15 @@ M.ui = {
   --   show_numbers = true
   -- },
 
+  cmp = { style = "default" },
+
+  telescope = { style = "bordered" },
+
   statusline = {
-    theme = "default",
+    theme = "minimal",
     separator_style = "round"
   },
+
 
   nvdash = {
     load_on_startup = true,

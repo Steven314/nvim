@@ -10,7 +10,8 @@ map("n", "<leader>fm", function()
   require("conform").format()
 end, { desc = "File Format with conform" })
 
-map("i", "jk", "<ESC>", { desc = "Escape insert mode" })
+-- map("i", "ne", "<ESC>", { desc = "Escape insert mode" })
+map("i", "<C-H>", "<C-w>")
 
 -- Toggle Transparency
 map("n", "<leader>tt", function ()
@@ -19,12 +20,12 @@ end, { desc = "Toggle Transparency" })
 
 -- TMUX Navigation
 map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>",  { desc = "TMUX Window Left"  })
-map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "TMUX Window Right" })
-map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>",  { desc = "TMUX Window Down"  })
-map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>",    { desc = "TMUX Window Up"    })
+map("n", "<C-i>", "<cmd> TmuxNavigateRight<CR>", { desc = "TMUX Window Right" })
+map("n", "<C-n>", "<cmd> TmuxNavigateDown<CR>",  { desc = "TMUX Window Down"  })
+map("n", "<C-e>", "<cmd> TmuxNavigateUp<CR>",    { desc = "TMUX Window Up"    })
 
 -- Control+S to save
-map( {"n", "i" }, "<C-s>", "<cmd> w<CR>", { desc = "Nvim Save" })
+map( {"n", "i"}, "<C-s>", "<cmd> w <CR>", { desc = "Nvim Save" })
 
 -- Open NvChad Settings
 map("n", "<leader>,", "<cmd> cd ~/.config/nvim/lua <CR>", { desc = "NvChad Open Lua Folder" })

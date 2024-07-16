@@ -1,21 +1,5 @@
 return {
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "configs.null-ls"
-        end,
-      },
-    },
-    config = function()
-      require "configs.lspconfig"
-      require("nvchad.configs.lspconfig").defaults()
-    end, -- Override to setup mason-lspconfig
-  },
-  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -35,20 +19,43 @@ return {
         "clang-format",
 
         -- python stuff
-        "mypy",
+        -- "mypy",
         "ruff",
         "pyright",
         "debugpy",
+
+        -- LaTeX stuff
+        "ltex-ls",
       }
-    }
+    },
+
   },
 
   {
-    "stevearc/conform.nvim",
-    config = function()
-      require "configs.conform"
-    end,
+    "williamboman/mason-lspconfig.nvim"
   },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "configs.null-ls"
+        end,
+      },
+    },
+    config = function()
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
+    end, -- Override to setup mason-lspconfig
+  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   config = function()
+  --     require "configs.conform"
+  --   end,
+  -- },
 
   {
     "nvim-telescope/telescope.nvim",
@@ -107,18 +114,26 @@ return {
     end
   },
 
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    lazy = false,
-    -- config = function()
-    --   dofile(vim.g.base46_cache .. "rainbowdelimiters")
-    --   require('nvchad.integrations.rainbow-delimiters.setup').setup {
-    --     -- query = {
-    --     --   latex = 'rainbow-blocks',
-    --     -- }
-    --   }
-    -- end
-  },
+  -- {
+  --   "HiPhish/rainbow-delimiters.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     vim.g.rainbow_delimiters = {
+  --       blacklist = {
+  --         "comment"
+  --       },
+  --       strategy = {
+  --         latex = require('rainbow_delimiters').strategy['local']
+  --       }
+  --     }
+  --     dofile(vim.g.base46_cache .. "rainbowdelimiters")
+  --     -- require('nvchad.integrations.rainbowdelimiters.setup').setup {
+  --     --   -- query = {
+  --     --   --   latex = 'rainbow-blocks',
+  --     --   -- }
+  --     -- }
+  --   end
+  -- },
 
   {
     "weilbith/nvim-code-action-menu",
@@ -133,7 +148,8 @@ return {
     lazy = false,
     config = function()
       require("auto-save").setup({
-        debounce_delay = 1000
+        debounce_delay = 2000,
+        trigger_events = { "InsertLeave" }
       })
     end
   },
@@ -216,7 +232,7 @@ return {
 
      end
   },
-  
+
   {
     "hrsh7th/nvim-cmp",
     opts = {
@@ -244,6 +260,14 @@ return {
       },
       window = {
         documentation = require("cmp").config.window.bordered()
+      },
+      view = {
+        docs = {
+          auto_open = false
+        }
+      },
+      performance = {
+        max_view_entries = 5
       }
     },
     dependencies = {
@@ -273,7 +297,8 @@ return {
         "c",
         "markdown",
         "markdown_inline",
-        "latex"
+        "latex",
+        "python"
       },
       indent = {
         enable = true,
@@ -283,4 +308,18 @@ return {
       },
     },
   },
+
+  {
+    "quarto-dev/quarto-nvim",
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+    ft = { 'quarto' },
+    config = function()
+      require('quarto').setup({
+
+      })
+    end
+  }
 }

@@ -4,7 +4,7 @@ local b = null_ls.builtins
 
 local sources = {
   -- python
-  b.diagnostics.mypy.with { filetypes = { "python" } },
+  -- b.diagnostics.mypy.with { filetypes = { "python" } },
   b.diagnostics.ruff.with { filetypes = { "python" } },
 
   -- webdev stuff
