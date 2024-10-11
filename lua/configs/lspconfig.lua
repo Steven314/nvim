@@ -1,40 +1,24 @@
-local configs = require("nvchad.configs.lspconfig")
-
-local on_attach    = configs.on_attach
-local on_init      = configs.on_init
-local capabilities = configs.capabilities
+-- load defaults i.e lua_lsp
+require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
-local servers   = { "html", "cssls", "tsserver", "pyright", "r_language_server" }
 
+-- EXAMPLE
+local servers = { "html", "cssls" }
+local nvlsp = require "nvchad.configs.lspconfig"
+
+-- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_init = on_init,
-    on_attach = on_attach,
-    capabilities = capabilities,
+    on_attach = nvlsp.on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
   }
 end
 
-lspconfig.ltex.setup {
-  on_init        = on_init,
-  on_attach      = on_attach,
-  capabilities   = capabilities,
-  settings = {
-      ltex = { checkFrequency = "save" }
-  }
-}
-
-lspconfig.marksman.setup {
-  on_init      = on_init,
-  on_attach    = on_attach,
-  capabilities = capabilities,
-  filetypes    = { 'markdown', '.qmd' },
-  root_dir = lspconfig.util.root_pattern('.git', '.marksman.toml', '_quarto.yml')
-}
-
--- require("mason").setup()
--- require("mason-lspconfig").setup()
--- require("mason-lspconfig").setup_handlers({
---   ["ltex"] = function()
---     
--- })
+-- configuring single server, example: typescript
+-- lspconfig.ts_ls.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+-- }
