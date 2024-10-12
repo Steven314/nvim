@@ -1,5 +1,5 @@
 return {
-  filters = { dotfiles = true },
+  filters = { dotfiles = false },
   git = {
     enable = true
   },
@@ -7,11 +7,11 @@ return {
     highlight_git = true,
     icons = {
       show = {
-        git = true
+        git = true,
       }
     },
     add_trailing = true,
     root_folder_label = ":~:s?$?/..?",
     -- indent_markers = { enable = true }
-  }
+  },
 }
