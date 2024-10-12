@@ -6,12 +6,15 @@
 local M = {}
 
 M.base46 = {
-	theme = "chocolate",
+  theme = "everforest",
 
-	hl_override = {
-		Comment = { italic = true },
-		["@comment"] = { italic = true },
-	},
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+    TelescopePromptTitle = { bg = "black", fg = "red" },
+    TelescopeResultsTitle = { bg = "black", fg = "green" },
+    TelescopePreviewTitle = { bg = "black", fg = "blue" },
+  },
 }
 
 M.ui = {
@@ -19,6 +22,8 @@ M.ui = {
     theme = "minimal",
     separator_style = "round"
   },
+
+  cmp = { style = "default" },
 
   telescope = { style = "bordered" }
 }

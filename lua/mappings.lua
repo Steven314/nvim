@@ -25,7 +25,6 @@ map(
 -- Crtl+S to save
 map({"n", "i"}, "<C-s>", "<cmd> w <CR>", { desc = "Nvim Save" })
 
-
 -- CD into the settings directory on Windows or Linux
 if vim.loop.os_uname().sysname == "Windows_NT" then
   SETTINGS_PATH = os.getenv("LOCALAPPDATA") .. "/nvim"
@@ -34,5 +33,4 @@ else
 end
 
 map({"n"}, "<leader>,", "<cmd> cd " .. SETTINGS_PATH .. "<CR>", { desc = "Nvim Open Settings" })
-
 

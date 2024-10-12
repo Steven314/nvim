@@ -14,18 +14,27 @@ return {
   },
 
   -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
+  --  "nvim-treesitter/nvim-treesitter",
+  --  opts = {
+  --    ensure_installed = {
+  --      "vim", "lua", "vimdoc",
   --      "html", "css"
-  -- 		},
-  -- 	},
+  --    },
+  --  },
   -- },
 
   {
     "nvim-tree/nvim-tree.lua",
     opts = require "configs.nvim-tree"
-  }
+  },
 
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = require "configs.telescope"
+  },
+
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy"
+  }
 }
