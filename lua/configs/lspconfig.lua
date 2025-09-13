@@ -8,7 +8,10 @@ local servers = {
   },
   markdown_oxide = {
     filetypes = { "markdown" }
-  } 
+  },
+  lua = {
+    filetypes = { "lua" }
+  }
 }
 
 for name, opts in pairs(servers) do
