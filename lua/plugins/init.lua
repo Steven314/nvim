@@ -38,4 +38,11 @@ return {
     ---@type render.md.UserConfig
     opts = {},
     ft = { 'markdown', 'quarto' }
-}}
+  },
+
+  {
+    'hrs7th/nvim-cmp',
+    opts = require 'configs.cmp'
+  }
+
+}
