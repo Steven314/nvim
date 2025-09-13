@@ -12,10 +12,10 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>", { desc = "Buffer Save" })
 
 -- Transparency
 map(
-  { "n" }, 
+  { "n" },
   "<leader>tt",
-  function() 
-    require("base46").toggle_transparency() 
-  end, 
+  function()
+    require("base46").toggle_transparency()
+  end,
   { desc = "Toggle Transparency" }
 )
