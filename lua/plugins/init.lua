@@ -42,7 +42,7 @@ return {
   },
 
   {
-    'hrs7th/nvim-cmp',
+    'hrsh7th/nvim-cmp',
     opts = require 'configs.cmp'
   }
 
