@@ -1,0 +1,12 @@
+local typst = require("typst-preview")
+
+typst.setup()
+
+local map = vim.keymap.set
+
+map(
+  'n',
+  '<leader>tp',
+  '<cmd> TypstPreview <cr>',
+  { desc = "Typst Preview" }
+)

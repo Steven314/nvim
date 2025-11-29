@@ -38,12 +38,32 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-    ft = { 'markdown', 'quarto' }
+    ft = { 'markdown' }
   },
 
   {
     'hrsh7th/nvim-cmp',
     opts = require 'configs.cmp'
-  }
+  },
 
+  {
+    "quarto-dev/quarto-nvim",
+    dependencies = {
+      "jmbuhr/otter.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+    opts = function ()
+      require("configs.quarto")
+    end;
+    ft = { 'quarto' }
+  },
+
+  {
+    'chomosuke/typst-preview.nvim',
+    ft = 'typst',
+    version = '1.*',
+    opts = function ()
+      require("configs.typst")
+    end;
+  }
 }

@@ -4,14 +4,20 @@ local servers = {
   html = {},
   cssls = {},
   tinymist = {
-    filetypes = { "typst" }
+    filetypes = { "typst" },
+    settings = {
+      formatterMode = "typstyle",
+      exportPdf = "onType",
+      semanticTokens = "disable"
+    }
   },
   markdown_oxide = {
     filetypes = { "markdown" }
   },
   lua = {
     filetypes = { "lua" }
-  }
+  },
+  jsonls = {}
 }
 
 for name, opts in pairs(servers) do
