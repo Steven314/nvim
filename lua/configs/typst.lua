@@ -10,3 +10,10 @@ map(
   '<cmd> TypstPreview <cr>',
   { desc = "Typst Preview" }
 )
+
+map(
+  'n',
+  '<leader>tr',
+  '<cmd> !typst compile % <cr>',
+  { desc = "Typst Render" }
+)
